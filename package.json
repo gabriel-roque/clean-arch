@@ -1,0 +1,29 @@
+{
+  "name": "clean-arch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabriel-roque/clean-arch.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabriel-roque/clean-arch/issues"
+  },
+  "homepage": "https://github.com/gabriel-roque/clean-arch#readme",
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "dependencies": {
+    "rimraf": "^3.0.2"
+  }
+}
