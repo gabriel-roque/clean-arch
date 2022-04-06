@@ -1,6 +1,9 @@
 {
-  "extends": "standard-with-typescript",
+  "plugins": ["@typescript-eslint/eslint-plugin"],
   "parserOptions": {
     "project": "./tsconfig.json"
+  },
+  "rules": {
+    "@typescript-eslint/consistent-type-definitions": "off"
   }
 }
