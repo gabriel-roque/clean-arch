@@ -1,11 +1,12 @@
 import { FacebookAuthenticationService } from '@/data/services';
 import { AuthenticationError } from '@/domain/errors';
 
+import { mock } from 'jest-mock-extended';
+import { LoadFacebookUserApi } from '@/data/contracts/apis';
+
 describe('Name of the group', () => {
   it('should call LoadFacebookUserApi with correct params', async () => {
-    const loadFacebookUserApi = {
-      loadUser: jest.fn(),
-    };
+    const loadFacebookUserApi = mock<LoadFacebookUserApi>();
     const sut = new FacebookAuthenticationService(loadFacebookUserApi);
 
     await sut.perform({ token: 'any_token' });
@@ -17,9 +18,7 @@ describe('Name of the group', () => {
   });
 
   it(`should return ${AuthenticationError.name} when LoadFacebookUserApi returns undefined`, async () => {
-    const loadFacebookUserApi = {
-      loadUser: jest.fn(),
-    };
+    const loadFacebookUserApi = mock<LoadFacebookUserApi>();
 
     loadFacebookUserApi.loadUser.mockResolvedValueOnce(undefined);
     const sut = new FacebookAuthenticationService(loadFacebookUserApi);
