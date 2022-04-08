@@ -3,7 +3,7 @@ import { FacebookAuthenticationService } from '@/data/services';
 import { AuthenticationError } from '@/domain/errors';
 import { mock, MockProxy } from 'jest-mock-extended';
 
-describe('Name of the group', () => {
+describe(FacebookAuthenticationService.name, () => {
   let sut: FacebookAuthenticationService;
   let loadFacebookUserApi: MockProxy<LoadFacebookUserApi>;
   const token = 'any_token';
