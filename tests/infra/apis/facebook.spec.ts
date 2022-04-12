@@ -1,17 +1,17 @@
 import { FacebookApi } from '@/infra/apis';
-import { HttpGetClient } from '@/infra/http';
+import { HttpClient } from '@/infra/http';
 import { mock, MockProxy } from 'jest-mock-extended';
 
 describe(FacebookApi.name, () => {
   let clientId: string;
   let clientSecret: string;
   let sut: FacebookApi;
-  let httpClient: MockProxy<HttpGetClient>;
+  let httpClient: MockProxy<HttpClient>;
 
   beforeAll(() => {
     clientId = 'any_client_id';
     clientSecret = 'any_client_secret';
-    httpClient = mock<HttpGetClient>();
+    httpClient = mock<HttpClient>();
   });
 
   beforeEach(() => {

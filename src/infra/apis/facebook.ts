@@ -1,5 +1,5 @@
 import { LoadFacebookUserApi } from '@/data/contracts/apis';
-import { HttpGetClient } from '@/infra/http';
+import { HttpClient } from '@/infra/http';
 
 type AppToken = {
   access_token: string;
@@ -20,7 +20,7 @@ export class FacebookApi implements LoadFacebookUserApi {
   private readonly baseUrl = 'https://graph.facebook.com';
 
   constructor(
-    private readonly httpClient: HttpGetClient,
+    private readonly httpClient: HttpClient,
     private readonly clientId: string,
     private readonly clientSecret: string,
   ) {}

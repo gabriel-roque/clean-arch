@@ -1,8 +1,8 @@
-export interface HttpGetClient {
-  get: <T = any>(params: HttpGetClient.Params) => Promise<T>;
+export interface HttpClient {
+  get: <T = any>(params: HttpClient.Params) => Promise<T>;
 }
 
-export namespace HttpGetClient {
+export namespace HttpClient {
   export type Params = {
     url: string;
     params: object;
