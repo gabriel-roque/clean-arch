@@ -1,4 +1,3 @@
-import { RequiredFieldError } from '@/application/errors';
 import {
   badRequest,
   HttpResponse,
@@ -27,8 +26,9 @@ export class FacebookLoginController {
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse<Model>> {
     try {
-      if (this.validate(httpRequest) !== undefined) {
-        return badRequest(new RequiredFieldError('token'));
+      const error = this.validate(httpRequest);
+      if (error !== undefined) {
+        return badRequest(error);
       }
 
       const accessToken = await this.facebookAuthentication.perform({
