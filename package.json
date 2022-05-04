@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prestart": "npm run build",
     "start": "node dist/main",
     "build": "rimraf dist && tsc -p tsconfig-build.json",
     "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
