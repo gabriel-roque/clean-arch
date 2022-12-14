@@ -1,12 +1,15 @@
 coverage:
+  github_checks:
+    annotations: true
   status:
+    patch: true
     project:
       default:
         target: 100%
         threshold: 1%
-  comment: # this is a top-level key
+  comment:
     layout: "reach, diff, flags, files"
     behavior: default
-    require_changes: false # if true: only post the comment if coverage changes
-    require_base: no # [yes :: must have a base report to post]
-    require_head: yes # [yes :: must have a head report to post]
+    require_changes: false
+    require_base: no
+    require_head: yes
