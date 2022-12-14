@@ -1,0 +1,39 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["16.15.0"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install
+        run: "npm install --save --legacy-peer-deps"
+      - name: Run lint
+        run: "npm run lint"
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["16.15.0"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install
+        run: "npm install --save --legacy-peer-deps"
+      - name: Run tests
+        run: "npm run test:coverage"
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
