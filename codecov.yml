@@ -1,8 +1,5 @@
 coverage:
-  github_checks:
-    annotations: true
   status:
-    patch: true
     project:
       default:
         target: 100%
@@ -13,3 +10,5 @@ coverage:
     require_changes: false
     require_base: no
     require_head: yes
+    branches:
+      - "*"
