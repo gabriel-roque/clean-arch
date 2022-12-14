@@ -3,11 +3,11 @@ name: CI/CD
 on:
   push:
     branches:
-      - master
+      - "*"
 
   pull_request:
     branches:
-      - master
+      - "*"
 
 jobs:
   lint:
@@ -39,7 +39,8 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage/clover.xml
+          files: ./coverage/clover.xml,./coverage/coverage-final.json
+          fail_ci_if_error: true
           flags: unit-tests
           name: clean-arch
           verbose: true
